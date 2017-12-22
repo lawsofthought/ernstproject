@@ -2,8 +2,6 @@
 Utilites for dealing with the file-system or operating system.
 '''
 
-from __future__ import absolute_import
-
 #=============================================================================
 # Standard library imports.
 #=============================================================================
