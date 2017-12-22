@@ -30,22 +30,22 @@ def mkdir_p(path):
             pass
         else: raise
 
-def checksum(argument, algorithm='sha256'):
+def checksum(fname, algorithm='sha256'):
     '''
-    Returns the hash checksum of `argument'.
-    If `argument' is a name of a file, then perform the checksum on the file.
-    Otherwise, the checksum is of the string `argument'.
-    By default, it will be the sha1 checksum (and so equivalent to linux's
-    sha1sum). Alternatively, the algorithm could be md5 (equivalent to linux's
-    md5sum), or else sha224, sha256, sha384, sha512.
+    Returns the hash checksum of contents of file `fname`.
+    By default, it will be the sha256 checksum (and so equivalent to linux's
+    sha256sum). Alternatively, the algorithm could be md5 (equivalent to linux's
+    md5sum), or else sha224, sha1, sha384, sha512.
     '''
 
     h = hashlib.new(algorithm)
 
-    if os.path.exists(argument) and os.path.isfile(argument):
-        argument = open(argument,'rb').read()
+    assert_file_exists(fname)
 
-    h.update(argument)
+    with open(fname,'rb') as f:
+        contents = f.read()
+
+    h.update(contents)
 
     return h.hexdigest()
 
