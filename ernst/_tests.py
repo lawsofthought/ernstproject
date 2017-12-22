@@ -3,7 +3,7 @@ import tempfile
 import os
 
 #################
-import sysutils
+from . import esys
 
 lipsum = b"""Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Vivamus
 eu elit convallis, pellentesque lacus eu, luctus arcu.  In tempus vulputate
@@ -28,7 +28,7 @@ class TestCase(unittest.TestCase):
         f.close()
 
         self.assertTrue(
-            sysutils.checksum(f.name) == lipsum_sha256_checksum
+            esys.checksum(f.name) == lipsum_sha256_checksum
         )
 
         os.unlink(f.name)

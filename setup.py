@@ -3,7 +3,7 @@ import unittest
 
 def test_suite():
     test_loader = unittest.TestLoader()
-    test_suite = test_loader.discover('ernst', pattern='test*.py')
+    test_suite = test_loader.discover('ernst', pattern='_test*.py')
     return test_suite
 
 setup(name = "ernst",
