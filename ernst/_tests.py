@@ -2,8 +2,11 @@ import unittest
 import tempfile
 import os
 
+print(os.path.abspath(os.path.dirname('.')))
+
 #################
-from . import esys
+from ernst import esys
+
 
 lipsum = b"""Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Vivamus
 eu elit convallis, pellentesque lacus eu, luctus arcu.  In tempus vulputate
